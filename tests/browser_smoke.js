@@ -31,6 +31,13 @@ const artifacts = path.join(root, 'reports', 'screenshots');
     await page.locator('#question').fill('What measurable differences were found?');
     await page.locator('#chat-form').getByRole('button', { name: 'Ask' }).click();
     await page.locator('#chat-log .message').last().filter({ hasText: 'AI INTERPRETATION' }).waitFor();
+
+    await page.locator('#question').fill('What is the circularity measurement?');
+    await page.locator('#chat-form').getByRole('button', { name: 'Ask' }).click();
+    await page.locator('#chat-log .message').last().filter({ hasText: 'Mean circularity' }).waitFor();
+    await page.locator('#question').fill('What does that mean?');
+    await page.locator('#chat-form').getByRole('button', { name: 'Ask' }).click();
+    await page.locator('#chat-log .message').last().filter({ hasText: 'Circularity approaches 1' }).waitFor();
     await page.locator('#assistant').screenshot({ path: path.join(artifacts, 'research-assistant.png') });
     await page.locator('#evaluation').screenshot({ path: path.join(artifacts, 'evaluation-methodology.png') });
 
@@ -59,6 +66,7 @@ const artifacts = path.join(root, 'reports', 'screenshots');
       imageWorkflow: 'passed',
       csvWorkflow: 'passed',
       chatWorkflow: 'passed',
+      followUpContext: 'passed',
       reportDownload: 'passed',
       screenshots: [
         'microscopy-analysis.png',

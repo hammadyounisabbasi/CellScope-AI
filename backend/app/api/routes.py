@@ -63,7 +63,12 @@ async def experiment_analysis(file: Annotated[UploadFile, File(...)]) -> dict:
 
 @router.post("/chat", response_model=ChatResponse)
 def chat(request: ChatRequest) -> dict:
-    return answer_question(request.question, request.image_analysis, request.experiment_analysis)
+    return answer_question(
+        request.question,
+        request.image_analysis,
+        request.experiment_analysis,
+        [turn.model_dump() for turn in request.conversation_history],
+    )
 
 
 @router.post("/reports/generate", response_model=ReportResponse)
@@ -89,4 +94,3 @@ def system_info() -> dict:
         "limits": {"max_upload_mb": settings.max_upload_mb, "csv_rows": 100_000},
         "disclaimer": "For research assistance only; not a medical diagnostic system.",
     }
-

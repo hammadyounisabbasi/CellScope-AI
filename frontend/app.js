@@ -1,4 +1,4 @@
-const state = { image: null, experiment: null, assistant: null };
+const state = { image: null, experiment: null, assistant: null, conversation: [] };
 const $ = selector => document.querySelector(selector);
 
 function toast(message) {
@@ -137,14 +137,23 @@ $('#chat-form').addEventListener('submit', async event => {
     state.assistant = await api('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question, image_analysis: state.image, experiment_analysis: state.experiment }),
+      body: JSON.stringify({
+        question,
+        image_analysis: state.image,
+        experiment_analysis: state.experiment,
+        conversation_history: state.conversation.slice(-12),
+      }),
     });
     const result = state.assistant;
     const sources = result.sources.map(source =>
       `<a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">[${escapeHtml(source.id)}] ${escapeHtml(source.title)}</a>`).join('');
     const trace = result.workflow_trace.map(step => step.node).join(' -> ');
+    const intents = result.workflow_trace[0]?.intents?.join(', ') || 'GENERAL_ANALYSIS_QUESTION';
     log.insertAdjacentHTML('beforeend', `<div class="message"><b>CellScope</b><p>${escapeHtml(result.answer)}</p>` +
-      `<div class="sources">${sources}</div><small>Workflow: ${escapeHtml(trace)}</small></div>`);
+      `<div class="sources">${sources}</div><small>Intent: ${escapeHtml(intents)}<br>Workflow: ${escapeHtml(trace)}</small></div>`);
+    state.conversation.push({ role: 'user', content: question });
+    state.conversation.push({ role: 'assistant', content: result.answer });
+    state.conversation = state.conversation.slice(-12);
     $('#question').value = '';
     log.lastElementChild.scrollIntoView({ behavior: 'smooth' });
   } catch (error) { toast(error.message); }

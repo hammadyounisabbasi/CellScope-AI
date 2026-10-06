@@ -68,6 +68,27 @@ def test_unsupported_chat_admits_limit(client):
     assert response.json()["evidence_sufficient"] is False
 
 
+def test_chat_accepts_history_for_short_follow_up(client):
+    response = client.post(
+        "/api/chat",
+        json={
+            "question": "What does that mean?",
+            "image_analysis": {
+                "metrics": {"mean_circularity": 0.77},
+                "reliability": {"level": "moderate", "notes": []},
+            },
+            "conversation_history": [
+                {"role": "user", "content": "What is the circularity?"},
+                {"role": "assistant", "content": "Mean circularity is 0.77."},
+            ],
+        },
+    )
+    assert response.status_code == 200
+    data = response.json()
+    assert "CIRCULARITY_ANALYSIS" in data["workflow_trace"][0]["intents"]
+    assert "approaches 1" in data["answer"]
+
+
 def test_report_generation(client):
     response = client.post("/api/reports/generate", json={"title": "Test report", "image_analysis": {"filename": "x.png", "method": "test", "metrics": {"object_count": 2}, "reliability": {"level": "test"}}})
     assert response.status_code == 200

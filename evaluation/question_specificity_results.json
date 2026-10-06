@@ -1,0 +1,220 @@
+{
+  "generated_at": "2026-10-06T14:43:08.999351+00:00",
+  "scope": "Question-specific routing against active deterministic sample analyses",
+  "checks": {
+    "all_image_answers_distinct": true,
+    "all_experiment_answers_distinct": true,
+    "direct_count_skips_interpretation": true,
+    "evidence_question_uses_retrieval": true
+  },
+  "passed": true,
+  "image_questions": [
+    {
+      "question": "Summarize the microscopy analysis results.",
+      "intents": [
+        "MICROSCOPY_SUMMARY"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "microscopy_analysis_tool",
+        "evidence_interpretation",
+        "response_composer"
+      ],
+      "tools_used": [
+        "microscopy_image_analysis"
+      ],
+      "answer": "MEASURED RESULT\nObjects detected: 47\nMean area: 346.638 px^2\nMean circularity: 0.917\nForeground fraction: 0.06061\nFocus score: 0.00747042\n\nAI INTERPRETATION\nThis is a quantitative summary of segmented regions, not a determination of cell identity or condition. Review the overlay and mask before using the measurements downstream."
+    },
+    {
+      "question": "How many cells or objects were detected in this image?",
+      "intents": [
+        "OBJECT_COUNT"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "microscopy_analysis_tool",
+        "response_composer"
+      ],
+      "tools_used": [
+        "microscopy_image_analysis"
+      ],
+      "answer": "MEASURED RESULT\n47 objects were detected in the current microscopy image."
+    },
+    {
+      "question": "What are the main morphological observations in this sample?",
+      "intents": [
+        "MORPHOLOGY"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "microscopy_analysis_tool",
+        "response_composer"
+      ],
+      "tools_used": [
+        "microscopy_image_analysis"
+      ],
+      "answer": "MEASURED RESULT\nObjects segmented: 47\nMean area: 346.638 px^2\nMean perimeter: 68.988 px\nMean circularity: 0.917\nMean eccentricity: 0.6307\n\nMORPHOLOGICAL OBSERVATION\nThe aggregate circularity (0.917) indicates strongly rounded segmented boundaries on average.\nThe mean eccentricity (0.6307) indicates moderate elongation on average.\nThese are aggregate region-shape descriptors; they do not identify a biological phenotype."
+    },
+    {
+      "question": "Explain the mean cell area.",
+      "intents": [
+        "AREA_ANALYSIS"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "microscopy_analysis_tool",
+        "evidence_interpretation",
+        "response_composer"
+      ],
+      "tools_used": [
+        "microscopy_image_analysis"
+      ],
+      "answer": "MEASURED RESULT\nMean area: 346.638 px^2\nMedian area: 309.0 px^2\nArea standard deviation: 184.266 px^2\n\nAI INTERPRETATION\nArea is measured in pixels for each segmented region. It is not a physical cell size until the image has a spatial calibration, and merged or split regions can shift the result."
+    },
+    {
+      "question": "What does the circularity measurement indicate?",
+      "intents": [
+        "CIRCULARITY_ANALYSIS"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "microscopy_analysis_tool",
+        "evidence_interpretation",
+        "response_composer"
+      ],
+      "tools_used": [
+        "microscopy_image_analysis"
+      ],
+      "answer": "MEASURED RESULT\nMean circularity: 0.917\n\nAI INTERPRETATION\nCircularity approaches 1 for a compact circular boundary and decreases as a region becomes elongated or irregular. It describes segmented shape, not cell health or identity."
+    },
+    {
+      "question": "What are the limitations of this analysis?",
+      "intents": [
+        "LIMITATIONS",
+        "GENERAL_IMAGE_QUESTION"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "microscopy_analysis_tool",
+        "response_composer"
+      ],
+      "tools_used": [
+        "microscopy_image_analysis"
+      ],
+      "answer": "LIMITATION\nDeterministic max-RGB Otsu thresholding, morphology, distance transform, and marker-controlled watershed were used.\nCounts are segmented objects, not independently verified biological cell identities.\nCounts can be affected by low contrast, blur, uneven illumination, scale shift, touching objects, debris, and over- or under-segmentation.\nPixel measurements alone do not establish cell identity, viability, disease, or mechanism."
+    },
+    {
+      "question": "What should I investigate next?",
+      "intents": [
+        "FOLLOW_UP",
+        "GENERAL_IMAGE_QUESTION"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "microscopy_analysis_tool",
+        "response_composer"
+      ],
+      "tools_used": [
+        "microscopy_image_analysis"
+      ],
+      "answer": "NEXT INVESTIGATION\nInspect false splits and merges in the overlay and mask.\nCompare measurements across independent images acquired with the same settings.\nAdd spatial calibration before interpreting pixel area as physical size."
+    },
+    {
+      "question": "What research evidence is relevant to these observations?",
+      "intents": [
+        "SCIENTIFIC_EVIDENCE",
+        "GENERAL_IMAGE_QUESTION"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "microscopy_analysis_tool",
+        "scientific_retrieval_tool",
+        "evidence_interpretation",
+        "response_composer"
+      ],
+      "tools_used": [
+        "microscopy_image_analysis",
+        "retrieve_scientific_context"
+      ],
+      "answer": "MEASURED CONTEXT\nThe active image contains 47 segmented objects with mean circularity 0.917 and foreground fraction 0.06061.\n\nRETRIEVED EVIDENCE\n[skimage-regionprops] Region properties quantify labeled objects, including area, perimeter, eccentricity, centroid, bounding box, and intensity-derived measurements.\n[otsu1979] Otsu thresholding chooses a global intensity threshold by maximizing between-class variance. Its assumptions can fail with uneven illumination, weak contrast, or complex backgrounds.\n[ljosa2012] The Broad Bioimage Benchmark Collection provides annotated microscopy image sets and expected results for developing and validating life-science image-analysis algorithms.\n\nAI INTERPRETATION\nThe retrieved sources explain relevant methods or benchmarks; they do not independently validate a biological conclusion for this uploaded sample."
+    }
+  ],
+  "experiment_questions": [
+    {
+      "question": "Compare control and treatment.",
+      "intents": [
+        "GROUP_COMPARISON"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "experiment_analysis_tool",
+        "response_composer"
+      ],
+      "tools_used": [
+        "experiment_csv_analysis"
+      ],
+      "answer": "STATISTICAL OBSERVATION\ncell_area: control mean=79.265333; treated mean=90.938667; Cohen's d=1.287232; unadjusted p=2.3e-05.\ncircularity: control mean=0.819913; treated mean=0.716343; Cohen's d=-2.069144; unadjusted p=0.0.\nintensity: control mean=121.274733; treated mean=135.2529; Cohen's d=1.061135; unadjusted p=0.00062."
+    },
+    {
+      "question": "Which variable changed most?",
+      "intents": [
+        "STRONGEST_CHANGE"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "experiment_analysis_tool",
+        "response_composer"
+      ],
+      "tools_used": [
+        "experiment_csv_analysis"
+      ],
+      "answer": "STATISTICAL OBSERVATION\ncircularity has the largest absolute standardized difference (Cohen's d=-2.069144).\nMeans: control=0.819913; treated=0.716343. Unadjusted p=0.0."
+    },
+    {
+      "question": "Are there outliers?",
+      "intents": [
+        "OUTLIERS"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "experiment_analysis_tool",
+        "response_composer"
+      ],
+      "tools_used": [
+        "experiment_csv_analysis"
+      ],
+      "answer": "STATISTICAL OBSERVATION\nIsolation Forest flagged 17 candidate unusual rows.\nT18: anomaly score=-0.127694\nC09: anomaly score=-0.091554\nT13: anomaly score=-0.071239\nC25: anomaly score=-0.061357\nT07: anomaly score=-0.059925\nT21: anomaly score=-0.056792\nC22: anomaly score=-0.048023\nC15: anomaly score=-0.046737\nThese are review candidates, not confirmed errors or biological abnormalities."
+    },
+    {
+      "question": "What is the effect size?",
+      "intents": [
+        "EFFECT_SIZE"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "experiment_analysis_tool",
+        "response_composer"
+      ],
+      "tools_used": [
+        "experiment_csv_analysis"
+      ],
+      "answer": "STATISTICAL OBSERVATION\ncell_area: Cohen's d=1.287232\ncircularity: Cohen's d=-2.069144\nintensity: Cohen's d=1.061135"
+    },
+    {
+      "question": "Summarize the experiment.",
+      "intents": [
+        "EXPERIMENT_SUMMARY"
+      ],
+      "workflow": [
+        "intent_context_analyzer",
+        "experiment_analysis_tool",
+        "evidence_interpretation",
+        "response_composer"
+      ],
+      "tools_used": [
+        "experiment_csv_analysis"
+      ],
+      "answer": "STATISTICAL OBSERVATION\nRows: 60; columns: 5.\nCandidate grouping column: group.\nGroup comparisons available: 3.\nCandidate unusual rows: 17.\n\nAI INTERPRETATION\nThe largest standardized group difference is for circularity (Cohen's d=-2.069144); its p-value is unadjusted and the association is not causal."
+    }
+  ]
+}

@@ -60,10 +60,16 @@ class ExperimentAnalysisResponse(BaseModel):
     disclaimer: str
 
 
+class ChatTurn(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str = Field(min_length=1, max_length=6000)
+
+
 class ChatRequest(BaseModel):
     question: str = Field(min_length=3, max_length=2000)
     image_analysis: dict[str, Any] | None = None
     experiment_analysis: dict[str, Any] | None = None
+    conversation_history: list[ChatTurn] = Field(default_factory=list, max_length=12)
 
 
 class ChatResponse(BaseModel):

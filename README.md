@@ -23,7 +23,7 @@ No paid API or LLM key is required. Unsupported questions produce an evidence li
 - PNG/JPEG/TIFF analysis with max-RGB Otsu foreground detection, morphology, marker-controlled watershed, and region properties.
 - Original image, binary mask, overlay, count, area, perimeter, circularity, eccentricity, intensity, density, and focus measurements.
 - CSV schema inference, missing-data audit, descriptive statistics, Mann-Whitney U, Cohen's d, Spearman correlation, anomaly candidates, and charts.
-- Deterministic state-graph orchestration across image context, experiment context, retrieval, interpretation, and response composition.
+- Hybrid question routing with deterministic direct rules, typo-tolerant character similarity, multi-intent decomposition, conversational follow-ups, and a traceable state graph.
 - Offline TF-IDF retrieval with title, URL, section metadata, score thresholding, and unsupported-answer handling.
 - Self-contained HTML reports with visual results, methods, findings, limitations, and references.
 - FastAPI validation, bounded uploads, safe filenames, tests, Docker configuration, and a responsive framework-free frontend.
@@ -122,6 +122,7 @@ curl -H "Content-Type: application/json" -d '{"question":"What evidence supports
 # Software regression and RAG
 python evaluation/run_evaluation.py
 python evaluation/evaluate_rag.py
+python evaluation/evaluate_question_specificity.py
 
 # BBBC031
 python scripts/download_bbbc031.py

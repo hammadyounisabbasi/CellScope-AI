@@ -54,7 +54,7 @@ The offline knowledge base stores curated summaries with ID, title, URL, and sec
 
 ## 12. Agentic Workflow
 
-An explicit deterministic state graph contains an intent/context analyzer, microscopy tool, experiment tool, scientific retrieval tool, evidence interpretation node, and response composer. Conditional edges depend on question terms and available state. The response includes a workflow trace. Quantitative claims originate only from structured analysis results. Output sections explicitly identify measured results, statistical observations, retrieved evidence, and AI interpretation.
+An explicit deterministic state graph contains an intent/context analyzer, microscopy tool, experiment tool, scientific retrieval tool, evidence interpretation node, and response composer. A hybrid classifier combines direct metric rules, synonym patterns, typo-tolerant character-ngram similarity, active context, and recent conversation turns. It can select multiple sub-intents for compound questions. Conditional edges skip retrieval and interpretation for direct factual requests, while evidence questions invoke both. The response includes selected intents and nodes in its workflow trace. Quantitative claims originate only from structured analysis results. Output sections explicitly identify measured results, statistical observations, retrieved evidence, interpretation, limitations, and next investigations when relevant.
 
 ## 13. System Architecture
 
