@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="CellScope AI research copilot for microscopy and experiment analysis">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23071014' stroke='%232dd4bf' stroke-width='6'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='54' fill='%232dd4bf'%3EC%3C/text%3E%3C/svg%3E">
+  <title>CellScope AI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="evaluation.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="#top"><span class="mark">C</span><span>CellScope <b>AI</b></span></a>
+    <nav><a href="#microscopy">Microscopy</a><a href="#experiment">Experiment</a><a href="#assistant">Assistant</a><a href="#evaluation">Evaluation</a><a href="#report">Report</a></nav>
+    <span id="api-status" class="status">Checking API</span>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <div><p class="eyebrow">RESEARCH ANALYSIS &middot; EXPLAINABLE BY DESIGN</p>
+        <h1>Measure the image.<br><em>Interrogate the evidence.</em></h1>
+        <p class="lede">A deterministic research copilot for microscopy segmentation, experiment statistics, grounded literature context, and reproducible reports.</p>
+        <div class="hero-actions"><a class="button" href="#microscopy">Analyze a sample</a><a class="ghost" href="/docs">API documentation &nearr;</a></div>
+      </div>
+      <div class="scope-card"><div class="scan"></div><p>PIPELINE STATUS</p><strong>LOCAL &middot; DETERMINISTIC</strong><ul><li>Otsu + watershed segmentation</li><li>Statistical comparison</li><li>Offline cited retrieval</li></ul></div>
+    </section>
+
+    <section class="metrics strip"><div><span>01</span><b>Quantify</b><small>Pixels &rarr; measurements</small></div><div><span>02</span><b>Compare</b><small>Groups &rarr; evidence</small></div><div><span>03</span><b>Ground</b><small>Claims &rarr; sources</small></div><div><span>04</span><b>Report</b><small>Results &rarr; artifact</small></div></section>
+
+    <section id="microscopy" class="workspace">
+      <div class="section-title"><p>MODULE 01</p><h2>Microscopy analyzer</h2><span>Upload PNG, JPEG, or TIFF. Maximum 15 MB.</span></div>
+      <div class="grid two">
+        <form id="image-form" class="panel upload-panel"><label class="drop"><input id="image-file" type="file" accept=".png,.jpg,.jpeg,.tif,.tiff" required><span class="drop-icon">+</span><b>Drop an image or choose a file</b><small>Uploaded files are analyzed in memory and not persisted.</small></label><button>Run segmentation</button></form>
+        <div class="panel result-panel"><div class="panel-head"><b>Segmentation output</b><span id="image-state">Awaiting image</span></div><div id="image-visuals" class="visuals empty">No analysis yet</div><div id="image-metrics" class="metric-grid"></div><div id="image-reliability" class="finding empty">Method and reliability notes appear after analysis.</div></div>
+      </div>
+    </section>
+
+    <section id="experiment" class="workspace">
+      <div class="section-title"><p>MODULE 02</p><h2>Experiment analytics</h2><span>Schema inference, group comparisons, correlations, and anomaly screening.</span></div>
+      <div class="grid two">
+        <form id="csv-form" class="panel upload-panel"><label class="drop"><input id="csv-file" type="file" accept=".csv" required><span class="drop-icon">&#8599;</span><b>Choose an experiment CSV</b><small>Up to 100,000 rows and 200 columns.</small></label><button>Analyze experiment</button></form>
+        <div class="panel result-panel"><div class="panel-head"><b>Statistical output</b><span id="csv-state">Awaiting CSV</span></div><div id="csv-results" class="empty">No analysis yet</div></div>
+      </div>
+    </section>
+
+    <section id="assistant" class="workspace">
+      <div class="section-title"><p>MODULE 03</p><h2>Evidence-grounded assistant</h2><span>Uses active analysis results and a curated offline knowledge base.</span></div>
+      <div class="panel assistant"><div id="chat-log"><div class="message system"><b>CellScope</b><p>Ask about the active image or experiment. I separate measurements, statistical observations, retrieved evidence, and interpretation.</p></div></div><form id="chat-form"><input id="question" minlength="3" maxlength="2000" placeholder="What measurable differences were found?" required><button>Ask</button></form></div>
+    </section>
+
+    <section id="evaluation" class="workspace">
+      <div class="section-title"><p>VALIDATION</p><h2>Measured performance</h2><span>Benchmark results describe declared datasets, not confidence for an uploaded image.</span></div>
+      <div class="panel"><div class="evaluation-grid">
+        <article><small>BBBC031 HELD-OUT &middot; SIMULATED</small><strong>0.9966</strong><span>Dice &middot; 162 images &middot; v2</span><p>Strong in-domain result after development-only selection.</p></article>
+        <article><small>BBBC008 &middot; REAL MICROSCOPY</small><strong>0.2289</strong><span>Dice &middot; 12 images &middot; frozen v2</span><p>Severe channel/intensity domain shift; most actin cytoplasm was missed.</p></article>
+        <article><small>EXPLORATORY PREPROCESSING</small><strong>0.5037</strong><span>Dice &middot; same BBBC008 fields</span><p>Post-hoc robust normalization; improved but still inadequate and not production.</p></article>
+      </div><p class="empty">CellScope is validated as research software on declared benchmarks. It is not universally validated microscopy software and not a clinical diagnostic system.</p></div>
+    </section>
+
+    <section id="report" class="workspace report-cta"><div><p>MODULE 04</p><h2>Package the analysis</h2><span>Generate a self-contained HTML research report with methods, findings, visual results, reliability notes, and references.</span></div><button id="report-button">Generate report</button></section>
+  </main>
+  <footer><span>CellScope AI &middot; Research assistance only</span><span>Not a medical diagnostic system</span></footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>

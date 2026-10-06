@@ -1,0 +1,301 @@
+{
+  "generated_at": "2026-10-05T15:50:33.159562+00:00",
+  "scope": "External real-microscopy semantic validation; not clinical validation",
+  "dataset": {
+    "name": "BBBC008",
+    "version": "1",
+    "source": "https://bbbc.broadinstitute.org/BBBC008",
+    "biological_context": "Human HT29 colon-cancer cell line",
+    "microscopy": "Real fluorescence microscopy acquired on a Cellomics ArrayScan",
+    "license": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported",
+    "images_archive": {
+      "url": "https://data.broadinstitute.org/bbbc/BBBC008/BBBC008_v1_images.zip",
+      "bytes": 7918852,
+      "sha256": "ff49adf65f57078c9d62e6fd2ffede7290f749fd63cfb543864da49d5bacd91d"
+    },
+    "foreground_archive": {
+      "url": "https://data.broadinstitute.org/bbbc/BBBC008/BBBC008_v1_foreground.zip",
+      "bytes": 484995,
+      "sha256": "a40a7d416f8d6ebec39c4d0f68432423984fbd5b4ba20ac48be9bbe48f9da886"
+    }
+  },
+  "protocol_file": "evaluation/external_validation_protocol.json",
+  "frozen_config": "evaluation/cellscope_v2_config.json",
+  "frozen_v2": {
+    "aggregate": {
+      "images": 12,
+      "mean_dice": 0.22893084,
+      "mean_iou": 0.13183272,
+      "mean_foreground_precision": 0.99971069,
+      "mean_foreground_recall": 0.13183633,
+      "mean_truth_foreground_fraction": 0.28731505,
+      "mean_predicted_foreground_fraction": 0.04044279,
+      "runtime_total_seconds": 1.219573,
+      "runtime_mean_seconds": 0.101631,
+      "runtime_p95_seconds": 0.134549
+    },
+    "per_image": [
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice1",
+        "dice": 0.14538476,
+        "iou": 0.0783908,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.0783908,
+        "truth_foreground_fraction": 0.20092773,
+        "predicted_foreground_fraction": 0.01575089,
+        "runtime_seconds": 0.167446
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice2",
+        "dice": 0.19236571,
+        "iou": 0.10641849,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.10641849,
+        "truth_foreground_fraction": 0.38857269,
+        "predicted_foreground_fraction": 0.04135132,
+        "runtime_seconds": 0.092145
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice3",
+        "dice": 0.18542204,
+        "iou": 0.10218466,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.10218466,
+        "truth_foreground_fraction": 0.41348267,
+        "predicted_foreground_fraction": 0.04225159,
+        "runtime_seconds": 0.088235
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice4",
+        "dice": 0.16633053,
+        "iou": 0.09070911,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.09070911,
+        "truth_foreground_fraction": 0.22023773,
+        "predicted_foreground_fraction": 0.01997757,
+        "runtime_seconds": 0.087461
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice5",
+        "dice": 0.20777761,
+        "iou": 0.11593294,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.11593294,
+        "truth_foreground_fraction": 0.09124374,
+        "predicted_foreground_fraction": 0.01057816,
+        "runtime_seconds": 0.086199
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice6",
+        "dice": 0.12868504,
+        "iou": 0.06876717,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.06876717,
+        "truth_foreground_fraction": 0.19298935,
+        "predicted_foreground_fraction": 0.01327133,
+        "runtime_seconds": 0.086924
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice1",
+        "dice": 0.32137731,
+        "iou": 0.19145297,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.19145297,
+        "truth_foreground_fraction": 0.35241318,
+        "predicted_foreground_fraction": 0.06747055,
+        "runtime_seconds": 0.097857
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice2",
+        "dice": 0.21394666,
+        "iou": 0.11978739,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.11978739,
+        "truth_foreground_fraction": 0.41768646,
+        "predicted_foreground_fraction": 0.05003357,
+        "runtime_seconds": 0.089676
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice3",
+        "dice": 0.28707125,
+        "iou": 0.16759089,
+        "foreground_precision": 0.99984208,
+        "foreground_recall": 0.16759533,
+        "truth_foreground_fraction": 0.28822708,
+        "predicted_foreground_fraction": 0.04831314,
+        "runtime_seconds": 0.106976
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice4",
+        "dice": 0.28686428,
+        "iou": 0.16744983,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.16744983,
+        "truth_foreground_fraction": 0.25166321,
+        "predicted_foreground_fraction": 0.04214096,
+        "runtime_seconds": 0.107633
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice5",
+        "dice": 0.42678915,
+        "iou": 0.27128541,
+        "foreground_precision": 0.99993178,
+        "foreground_recall": 0.27129043,
+        "truth_foreground_fraction": 0.41223526,
+        "predicted_foreground_fraction": 0.11184311,
+        "runtime_seconds": 0.10275
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice6",
+        "dice": 0.1851558,
+        "iou": 0.10202297,
+        "foreground_precision": 0.99675436,
+        "foreground_recall": 0.10205688,
+        "truth_foreground_fraction": 0.2181015,
+        "predicted_foreground_fraction": 0.02233124,
+        "runtime_seconds": 0.106271
+      }
+    ],
+    "failures": []
+  },
+  "generalization_experiment": {
+    "name": "CellScope v2 + per-channel robust normalization",
+    "status": "post-hoc exploratory; not production and not independent validation",
+    "preprocessing": "For each nonempty channel: subtract 1st percentile, divide by 99.5th minus 1st percentile, clip to [0,1], convert to uint8. Then run frozen v2 unchanged.",
+    "aggregate": {
+      "images": 12,
+      "mean_dice": 0.50373122,
+      "mean_iou": 0.34745815,
+      "mean_foreground_precision": 0.99911257,
+      "mean_foreground_recall": 0.34757291,
+      "mean_truth_foreground_fraction": 0.28731505,
+      "mean_predicted_foreground_fraction": 0.09165319,
+      "runtime_total_seconds": 1.392871,
+      "runtime_mean_seconds": 0.116073,
+      "runtime_p95_seconds": 0.136416
+    },
+    "per_image": [
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice1",
+        "dice": 0.69625181,
+        "iou": 0.53403856,
+        "foreground_precision": 0.99727405,
+        "foreground_recall": 0.53481926,
+        "truth_foreground_fraction": 0.20092773,
+        "predicted_foreground_fraction": 0.10775375,
+        "runtime_seconds": 0.13017
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice2",
+        "dice": 0.52619017,
+        "iou": 0.35702718,
+        "foreground_precision": 0.99942301,
+        "foreground_recall": 0.35710078,
+        "truth_foreground_fraction": 0.38857269,
+        "predicted_foreground_fraction": 0.13883972,
+        "runtime_seconds": 0.14405
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice3",
+        "dice": 0.45031513,
+        "iou": 0.29058497,
+        "foreground_precision": 0.99870048,
+        "foreground_recall": 0.29069489,
+        "truth_foreground_fraction": 0.41348267,
+        "predicted_foreground_fraction": 0.1203537,
+        "runtime_seconds": 0.110448
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice4",
+        "dice": 0.51315993,
+        "iou": 0.34513458,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.34513458,
+        "truth_foreground_fraction": 0.22023773,
+        "predicted_foreground_fraction": 0.07601166,
+        "runtime_seconds": 0.1089
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice5",
+        "dice": 0.79391969,
+        "iou": 0.65826436,
+        "foreground_precision": 0.99980952,
+        "foreground_recall": 0.65834692,
+        "truth_foreground_fraction": 0.09124374,
+        "predicted_foreground_fraction": 0.06008148,
+        "runtime_seconds": 0.104981
+      },
+      {
+        "image": "AS_09125_050116000001_A24f00d0_slice6",
+        "dice": 0.51457764,
+        "iou": 0.34641841,
+        "foreground_precision": 0.99994295,
+        "foreground_recall": 0.34642525,
+        "truth_foreground_fraction": 0.19298935,
+        "predicted_foreground_fraction": 0.0668602,
+        "runtime_seconds": 0.108391
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice1",
+        "dice": 0.5110556,
+        "iou": 0.3432335,
+        "foreground_precision": 0.99981083,
+        "foreground_recall": 0.34325579,
+        "truth_foreground_fraction": 0.35241318,
+        "predicted_foreground_fraction": 0.12099075,
+        "runtime_seconds": 0.110023
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice2",
+        "dice": 0.29622426,
+        "iou": 0.17386341,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.17386341,
+        "truth_foreground_fraction": 0.41768646,
+        "predicted_foreground_fraction": 0.07262039,
+        "runtime_seconds": 0.108494
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice3",
+        "dice": 0.51045794,
+        "iou": 0.34269455,
+        "foreground_precision": 0.99988416,
+        "foreground_recall": 0.34270815,
+        "truth_foreground_fraction": 0.28822708,
+        "predicted_foreground_fraction": 0.09878922,
+        "runtime_seconds": 0.120619
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice4",
+        "dice": 0.39525182,
+        "iou": 0.24630146,
+        "foreground_precision": 1.0,
+        "foreground_recall": 0.24630146,
+        "truth_foreground_fraction": 0.25166321,
+        "predicted_foreground_fraction": 0.06198502,
+        "runtime_seconds": 0.122396
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice5",
+        "dice": 0.46733041,
+        "iou": 0.30491269,
+        "foreground_precision": 0.99993931,
+        "foreground_recall": 0.30491834,
+        "truth_foreground_fraction": 0.41223526,
+        "predicted_foreground_fraction": 0.12570572,
+        "runtime_seconds": 0.118687
+      },
+      {
+        "image": "AS_09125_050116000001_L15f00d0_slice6",
+        "dice": 0.37004029,
+        "iou": 0.22702419,
+        "foreground_precision": 0.99456647,
+        "foreground_recall": 0.22730612,
+        "truth_foreground_fraction": 0.2181015,
+        "predicted_foreground_fraction": 0.04984665,
+        "runtime_seconds": 0.105712
+      }
+    ],
+    "failures": []
+  }
+}

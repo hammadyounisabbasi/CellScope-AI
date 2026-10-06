@@ -1,0 +1,408 @@
+{
+  "generated_at": "2026-10-04T17:44:36.482041+00:00",
+  "dataset": {
+    "name": "BBBC031",
+    "version": "1",
+    "source": "https://bbbc.broadinstitute.org/BBBC031",
+    "archive_url": "https://data.broadinstitute.org/bbbc/BBBC031/BBBC031_v1_dataset.zip",
+    "archive_sha256": "47997aef4d69b4ccf563d1a4b5b2087b8f81ef920c7f6a8696af34804c410414",
+    "annotation_url": "https://data.broadinstitute.org/bbbc/BBBC031/BBBC031_v1_DatasetGroundTruth.csv",
+    "annotation_sha256": "4888b29a1a0a2053f3dfcaaf49b8def07c4788242248a41cc0e5bb173dbab341",
+    "license": "Creative Commons Attribution 3.0 Unported"
+  },
+  "protocol_file": "evaluation/bbbc031_protocol.json",
+  "protocol_version": "1.0.1",
+  "selection_uses": "development wells only",
+  "candidates": [
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 0.0,
+        "minimum_object_size": 72,
+        "peak_min_distance": 16
+      },
+      "selection_score": 1.2438537,
+      "aggregate": {
+        "mean_dice": 0.99744166,
+        "mean_iou": 0.99490066,
+        "mean_foreground_precision": 0.99995253,
+        "mean_foreground_recall": 0.99494758,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99726681,
+        "mean_detection_f1": 0.99861638,
+        "mean_merged_object_rate": 0.01294547,
+        "mean_oversegmentation_rate": 0.00231481,
+        "mean_undersegmentation_rate": 0.01203704,
+        "images": 54,
+        "count_mae": 0.57407407,
+        "count_rmse": 0.87135484,
+        "count_mape": 0.01435185,
+        "mean_predicted_count": 39.61111111,
+        "runtime_total_seconds": 35.968935,
+        "runtime_mean_seconds": 0.666091,
+        "runtime_p95_seconds": 1.04769
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 0.0,
+        "minimum_object_size": 72,
+        "peak_min_distance": 12
+      },
+      "selection_score": 1.24367892,
+      "aggregate": {
+        "mean_dice": 0.99749836,
+        "mean_iou": 0.99501347,
+        "mean_foreground_precision": 0.99995255,
+        "mean_foreground_recall": 0.99506041,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99457722,
+        "mean_detection_f1": 0.99724422,
+        "mean_merged_object_rate": 0.01292173,
+        "mean_oversegmentation_rate": 0.00416667,
+        "mean_undersegmentation_rate": 0.01111111,
+        "images": 54,
+        "count_mae": 0.61111111,
+        "count_rmse": 0.93293642,
+        "count_mape": 0.01527778,
+        "mean_predicted_count": 39.72222222,
+        "runtime_total_seconds": 29.779075,
+        "runtime_mean_seconds": 0.551464,
+        "runtime_p95_seconds": 0.786714
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 0.0,
+        "minimum_object_size": 36,
+        "peak_min_distance": 16
+      },
+      "selection_score": 1.24363663,
+      "aggregate": {
+        "mean_dice": 0.99722459,
+        "mean_iou": 0.99446946,
+        "mean_foreground_precision": 0.99995873,
+        "mean_foreground_recall": 0.9945102,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99726681,
+        "mean_detection_f1": 0.99861638,
+        "mean_merged_object_rate": 0.01294547,
+        "mean_oversegmentation_rate": 0.00231481,
+        "mean_undersegmentation_rate": 0.01203704,
+        "images": 54,
+        "count_mae": 0.57407407,
+        "count_rmse": 0.87135484,
+        "count_mape": 0.01435185,
+        "mean_predicted_count": 39.61111111,
+        "runtime_total_seconds": 28.093567,
+        "runtime_mean_seconds": 0.520251,
+        "runtime_p95_seconds": 0.731383
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 0.0,
+        "minimum_object_size": 36,
+        "peak_min_distance": 12
+      },
+      "selection_score": 1.24336315,
+      "aggregate": {
+        "mean_dice": 0.99729833,
+        "mean_iou": 0.99461607,
+        "mean_foreground_precision": 0.99995874,
+        "mean_foreground_recall": 0.99465683,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99323242,
+        "mean_detection_f1": 0.99655813,
+        "mean_merged_object_rate": 0.01290986,
+        "mean_oversegmentation_rate": 0.00509259,
+        "mean_undersegmentation_rate": 0.01064815,
+        "images": 54,
+        "count_mae": 0.62962963,
+        "count_rmse": 0.96225045,
+        "count_mape": 0.01574074,
+        "mean_predicted_count": 39.77777778,
+        "runtime_total_seconds": 28.382852,
+        "runtime_mean_seconds": 0.525608,
+        "runtime_p95_seconds": 0.762865
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 0.0,
+        "minimum_object_size": 72,
+        "peak_min_distance": 8
+      },
+      "selection_score": 1.24317134,
+      "aggregate": {
+        "mean_dice": 0.99756949,
+        "mean_iou": 0.99515491,
+        "mean_foreground_precision": 0.99995255,
+        "mean_foreground_recall": 0.99520185,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.9905111,
+        "mean_detection_f1": 0.9951806,
+        "mean_merged_object_rate": 0.01289799,
+        "mean_oversegmentation_rate": 0.00740741,
+        "mean_undersegmentation_rate": 0.01018519,
+        "images": 54,
+        "count_mae": 0.7037037,
+        "count_rmse": 1.0,
+        "count_mape": 0.01759259,
+        "mean_predicted_count": 39.88888889,
+        "runtime_total_seconds": 25.65668,
+        "runtime_mean_seconds": 0.475124,
+        "runtime_p95_seconds": 0.738808
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 0.0,
+        "minimum_object_size": 36,
+        "peak_min_distance": 8
+      },
+      "selection_score": 1.24266851,
+      "aggregate": {
+        "mean_dice": 0.99741388,
+        "mean_iou": 0.99484571,
+        "mean_foreground_precision": 0.99995875,
+        "mean_foreground_recall": 0.99488647,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.98646707,
+        "mean_detection_f1": 0.99311686,
+        "mean_merged_object_rate": 0.0128505,
+        "mean_oversegmentation_rate": 0.01018519,
+        "mean_undersegmentation_rate": 0.0087963,
+        "images": 54,
+        "count_mae": 0.75925926,
+        "count_rmse": 1.06284036,
+        "count_mape": 0.01898148,
+        "mean_predicted_count": 40.05555556,
+        "runtime_total_seconds": 32.258513,
+        "runtime_mean_seconds": 0.59738,
+        "runtime_p95_seconds": 0.938141
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 1.0,
+        "minimum_object_size": 72,
+        "peak_min_distance": 12
+      },
+      "selection_score": 1.23739692,
+      "aggregate": {
+        "mean_dice": 0.99248951,
+        "mean_iou": 0.9850972,
+        "mean_foreground_precision": 0.99662583,
+        "mean_foreground_recall": 0.98839198,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99586189,
+        "mean_detection_f1": 0.99789946,
+        "mean_merged_object_rate": 0.01927153,
+        "mean_oversegmentation_rate": 0.00231481,
+        "mean_undersegmentation_rate": 0.01805556,
+        "images": 54,
+        "count_mae": 0.81481481,
+        "count_rmse": 1.15470054,
+        "count_mape": 0.02037037,
+        "mean_predicted_count": 39.37037037,
+        "runtime_total_seconds": 30.143024,
+        "runtime_mean_seconds": 0.558204,
+        "runtime_p95_seconds": 0.836186
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 1.0,
+        "minimum_object_size": 36,
+        "peak_min_distance": 8
+      },
+      "selection_score": 1.23727554,
+      "aggregate": {
+        "mean_dice": 0.99248387,
+        "mean_iou": 0.98508601,
+        "mean_foreground_precision": 0.99662402,
+        "mean_foreground_recall": 0.98838239,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.98998704,
+        "mean_detection_f1": 0.99489701,
+        "mean_merged_object_rate": 0.01916137,
+        "mean_oversegmentation_rate": 0.00555556,
+        "mean_undersegmentation_rate": 0.01527778,
+        "images": 54,
+        "count_mae": 0.83333333,
+        "count_rmse": 1.1785113,
+        "count_mape": 0.02083333,
+        "mean_predicted_count": 39.61111111,
+        "runtime_total_seconds": 28.316728,
+        "runtime_mean_seconds": 0.524384,
+        "runtime_p95_seconds": 0.785582
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 1.0,
+        "minimum_object_size": 36,
+        "peak_min_distance": 12
+      },
+      "selection_score": 1.23721061,
+      "aggregate": {
+        "mean_dice": 0.99241894,
+        "mean_iou": 0.9849584,
+        "mean_foreground_precision": 0.99662479,
+        "mean_foreground_recall": 0.98825316,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99451709,
+        "mean_detection_f1": 0.99721337,
+        "mean_merged_object_rate": 0.01925966,
+        "mean_oversegmentation_rate": 0.00324074,
+        "mean_undersegmentation_rate": 0.01759259,
+        "images": 54,
+        "count_mae": 0.83333333,
+        "count_rmse": 1.1785113,
+        "count_mape": 0.02083333,
+        "mean_predicted_count": 39.42592593,
+        "runtime_total_seconds": 31.830103,
+        "runtime_mean_seconds": 0.589446,
+        "runtime_p95_seconds": 0.854592
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 1.0,
+        "minimum_object_size": 72,
+        "peak_min_distance": 8
+      },
+      "selection_score": 1.23719546,
+      "aggregate": {
+        "mean_dice": 0.99251954,
+        "mean_iou": 0.98515611,
+        "mean_foreground_precision": 0.99662539,
+        "mean_foreground_recall": 0.98845173,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99316208,
+        "mean_detection_f1": 0.99652179,
+        "mean_merged_object_rate": 0.0192365,
+        "mean_oversegmentation_rate": 0.00416667,
+        "mean_undersegmentation_rate": 0.01712963,
+        "images": 54,
+        "count_mae": 0.85185185,
+        "count_rmse": 1.18634203,
+        "count_mape": 0.0212963,
+        "mean_predicted_count": 39.48148148,
+        "runtime_total_seconds": 26.800279,
+        "runtime_mean_seconds": 0.496301,
+        "runtime_p95_seconds": 0.718409
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 1.0,
+        "minimum_object_size": 72,
+        "peak_min_distance": 16
+      },
+      "selection_score": 1.23712531,
+      "aggregate": {
+        "mean_dice": 0.99244939,
+        "mean_iou": 0.98501799,
+        "mean_foreground_precision": 0.99662803,
+        "mean_foreground_recall": 0.98831002,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99769281,
+        "mean_detection_f1": 0.99883183,
+        "mean_merged_object_rate": 0.01932027,
+        "mean_oversegmentation_rate": 0.00185185,
+        "mean_undersegmentation_rate": 0.01944444,
+        "images": 54,
+        "count_mae": 0.85185185,
+        "count_rmse": 1.17062819,
+        "count_mape": 0.0212963,
+        "mean_predicted_count": 39.2962963,
+        "runtime_total_seconds": 27.331429,
+        "runtime_mean_seconds": 0.506138,
+        "runtime_p95_seconds": 0.724283
+      },
+      "failures": []
+    },
+    {
+      "configuration": {
+        "signal": "max_rgb",
+        "gaussian_sigma": 1.0,
+        "minimum_object_size": 36,
+        "peak_min_distance": 16
+      },
+      "selection_score": 1.23703787,
+      "aggregate": {
+        "mean_dice": 0.99236195,
+        "mean_iou": 0.984846,
+        "mean_foreground_precision": 0.9966274,
+        "mean_foreground_recall": 0.9881374,
+        "mean_point_recall": 1.0,
+        "mean_object_precision": 0.99769281,
+        "mean_detection_f1": 0.99883183,
+        "mean_merged_object_rate": 0.01932027,
+        "mean_oversegmentation_rate": 0.00185185,
+        "mean_undersegmentation_rate": 0.01944444,
+        "images": 54,
+        "count_mae": 0.85185185,
+        "count_rmse": 1.17062819,
+        "count_mape": 0.0212963,
+        "mean_predicted_count": 39.2962963,
+        "runtime_total_seconds": 28.986183,
+        "runtime_mean_seconds": 0.536781,
+        "runtime_p95_seconds": 0.741645
+      },
+      "failures": []
+    }
+  ],
+  "selected": {
+    "configuration": {
+      "signal": "max_rgb",
+      "gaussian_sigma": 0.0,
+      "minimum_object_size": 72,
+      "peak_min_distance": 16
+    },
+    "selection_score": 1.2438537,
+    "aggregate": {
+      "mean_dice": 0.99744166,
+      "mean_iou": 0.99490066,
+      "mean_foreground_precision": 0.99995253,
+      "mean_foreground_recall": 0.99494758,
+      "mean_point_recall": 1.0,
+      "mean_object_precision": 0.99726681,
+      "mean_detection_f1": 0.99861638,
+      "mean_merged_object_rate": 0.01294547,
+      "mean_oversegmentation_rate": 0.00231481,
+      "mean_undersegmentation_rate": 0.01203704,
+      "images": 54,
+      "count_mae": 0.57407407,
+      "count_rmse": 0.87135484,
+      "count_mape": 0.01435185,
+      "mean_predicted_count": 39.61111111,
+      "runtime_total_seconds": 35.968935,
+      "runtime_mean_seconds": 0.666091,
+      "runtime_p95_seconds": 1.04769
+    },
+    "failures": []
+  }
+}

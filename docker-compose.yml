@@ -1,0 +1,13 @@
+services:
+  cellscope:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      CELLSCOPE_MAX_UPLOAD_MB: "15"
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+

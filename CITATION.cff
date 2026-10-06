@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use CellScope AI, please cite this software and the underlying datasets."
+title: "CellScope AI: Agentic Research Copilot for Cellular and Organ-on-a-Chip Analysis"
+type: software
+version: 0.1.0
+date-released: 2026-10-05
+license: MIT
+authors:
+  - family-names: "CellScope AI contributors"

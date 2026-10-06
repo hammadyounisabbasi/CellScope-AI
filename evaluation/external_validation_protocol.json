@@ -1,0 +1,58 @@
+{
+  "protocol_version": "1.0.0",
+  "declared_on": "2026-10-05",
+  "dataset": {
+    "name": "BBBC008",
+    "version": "1",
+    "source": "https://bbbc.broadinstitute.org/BBBC008",
+    "biological_context": "Human HT29 colon-cancer cell line",
+    "microscopy": "Real fluorescence microscopy acquired on a Cellomics ArrayScan",
+    "license": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported",
+    "images_archive": {
+      "url": "https://data.broadinstitute.org/bbbc/BBBC008/BBBC008_v1_images.zip",
+      "bytes": 7918852,
+      "sha256": "ff49adf65f57078c9d62e6fd2ffede7290f749fd63cfb543864da49d5bacd91d"
+    },
+    "foreground_archive": {
+      "url": "https://data.broadinstitute.org/bbbc/BBBC008/BBBC008_v1_foreground.zip",
+      "bytes": 484995,
+      "sha256": "a40a7d416f8d6ebec39c4d0f68432423984fbd5b4ba20ac48be9bbe48f9da886"
+    }
+  },
+  "samples": {
+    "expected_fields": 12,
+    "evaluated_fields": "all successfully paired official fields",
+    "resolution": [512, 512],
+    "exclusions": [],
+    "exclusion_policy": "Do not silently exclude. Missing pairs, unreadable files, or dimension mismatches are recorded as failures and reduce the evaluated count."
+  },
+  "input_composition": {
+    "channel_1": "Hoechst/DNA; mapped to blue",
+    "channel_3": "phalloidin/actin; mapped to green",
+    "red": "zeros",
+    "green": "raw channel 3 uint8 values",
+    "blue": "raw channel 1 uint8 values",
+    "per_channel_normalization": "none",
+    "resizing": "none"
+  },
+  "ground_truth": {
+    "target": "Pixelwise union of official channel 1 and channel 3 binary foreground masks",
+    "annotation_method": "Automated threshold estimate subsequently cleaned by hand, as documented by BBBC",
+    "supported_task": "semantic foreground segmentation",
+    "unsupported_tasks": ["instance-mask IoU", "cell-count error", "center detection", "phenotype classification"]
+  },
+  "algorithm": {
+    "name": "CellScope Deterministic Pipeline v2",
+    "version": "2.0.0",
+    "frozen_config": "evaluation/cellscope_v2_config.json",
+    "parameter_changes_for_external_data": "none"
+  },
+  "metrics": {
+    "per_image": ["Dice", "IoU", "foreground precision", "foreground recall", "runtime seconds"],
+    "aggregate": "Macro mean across successfully evaluated fields; p95 and total runtime also reported",
+    "empty_mask_policy": "If both prediction and truth are empty, Dice and IoU are 1; otherwise denominators are guarded and failures are recorded."
+  },
+  "failure_handling": "Every failure is retained with sample ID and exception type. Aggregate denominator is explicit.",
+  "generalization_experiment_policy": "Frozen v2 results are written first and never overwritten. Any optional preprocessing result is separately labeled and cannot change production configuration."
+}
+

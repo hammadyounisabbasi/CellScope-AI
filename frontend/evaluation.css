@@ -1,0 +1,28 @@
+.evaluation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.evaluation-grid article {
+  background: #081216;
+  border-top: 2px solid #2dd4bf;
+  padding: 18px;
+}
+
+.evaluation-grid small,
+.evaluation-grid span {
+  color: #8aa4a7;
+  display: block;
+}
+
+.evaluation-grid strong {
+  color: #2dd4bf;
+  display: block;
+  font: 38px Georgia, serif;
+  margin: 10px 0 2px;
+}
+
+@media (max-width: 800px) {
+  .evaluation-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,60 @@
+{
+  "generated_at": "2026-10-05T17:09:33.774416+00:00",
+  "retrieval_mode": "offline TF-IDF unigram/bigram cosine similarity",
+  "cases": 5,
+  "recall_at_3": 1.0,
+  "citation_metadata_completeness": 1.0,
+  "unsupported_answer_handling": {
+    "passed": true,
+    "answer": "RETRIEVED EVIDENCE\nNo sufficiently relevant source was found in the curated offline knowledge base.\n\nAI INTERPRETATION\nThe available measurements can prioritize follow-up checks, but they are not sufficient for a causal or biological conclusion. Confirm segmentation visually, inspect replicates, and pre-specify an appropriate statistical analysis."
+  },
+  "per_case": [
+    {
+      "question": "What annotations and channels are available in BBBC031?",
+      "expected_source": "bbbc031",
+      "retrieved_ids": [
+        "bbbc031"
+      ],
+      "hit_at_3": true,
+      "metadata_complete": true
+    },
+    {
+      "question": "Does BBBC008 provide real HT29 fluorescence foreground masks?",
+      "expected_source": "bbbc008",
+      "retrieved_ids": [
+        "bbbc008",
+        "bbbc031"
+      ],
+      "hit_at_3": true,
+      "metadata_complete": true
+    },
+    {
+      "question": "What is a limitation of global Otsu thresholding?",
+      "expected_source": "otsu1979",
+      "retrieved_ids": [
+        "otsu1979"
+      ],
+      "hit_at_3": true,
+      "metadata_complete": true
+    },
+    {
+      "question": "Which measurements are available from labeled image regions?",
+      "expected_source": "skimage-regionprops",
+      "retrieved_ids": [
+        "skimage-regionprops",
+        "ljosa2012"
+      ],
+      "hit_at_3": true,
+      "metadata_complete": true
+    },
+    {
+      "question": "Why are Isolation Forest outputs only anomaly candidates?",
+      "expected_source": "isolation-forest",
+      "retrieved_ids": [
+        "isolation-forest"
+      ],
+      "hit_at_3": true,
+      "metadata_complete": true
+    }
+  ]
+}

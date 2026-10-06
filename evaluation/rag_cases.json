@@ -1,0 +1,23 @@
+[
+  {
+    "question": "What annotations and channels are available in BBBC031?",
+    "expected_source": "bbbc031"
+  },
+  {
+    "question": "Does BBBC008 provide real HT29 fluorescence foreground masks?",
+    "expected_source": "bbbc008"
+  },
+  {
+    "question": "What is a limitation of global Otsu thresholding?",
+    "expected_source": "otsu1979"
+  },
+  {
+    "question": "Which measurements are available from labeled image regions?",
+    "expected_source": "skimage-regionprops"
+  },
+  {
+    "question": "Why are Isolation Forest outputs only anomaly candidates?",
+    "expected_source": "isolation-forest"
+  }
+]
+

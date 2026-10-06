@@ -1,0 +1,42 @@
+{
+  "algorithm_name": "CellScope Deterministic Pipeline v2",
+  "algorithm_version": "2.0.0",
+  "frozen_on": "2026-10-05",
+  "selection_dataset": "BBBC031 v1 development wells only",
+  "production_implementation": "backend.app.vision.analyzer._segment_improved",
+  "input": {
+    "accepted_formats": ["PNG", "JPEG", "TIFF"],
+    "decode_mode": "Pillow RGB",
+    "spatial_resizing": "none"
+  },
+  "preprocessing": {
+    "signal": "per-pixel maximum across R, G, and B channels",
+    "numeric_range": [0.0, 1.0],
+    "intensity_rescaling": "skimage.exposure.rescale_intensity",
+    "gaussian_smoothing_sigma": 0.0
+  },
+  "foreground": {
+    "threshold": "global Otsu",
+    "polarity": "signal > threshold",
+    "minimum_object_size_pixels": 72,
+    "maximum_hole_area_pixels": 72,
+    "binary_opening": {
+      "footprint": "disk",
+      "radius_pixels": 1
+    }
+  },
+  "instances": {
+    "distance_transform": "Euclidean",
+    "distance_smoothing_sigma": 1.0,
+    "marker_method": "skimage.feature.peak_local_max",
+    "peak_min_distance_pixels": 16,
+    "exclude_border": false,
+    "watershed_surface": "negative unsmoothed Euclidean distance",
+    "watershed_mask": "cleaned foreground",
+    "post_watershed_minimum_size_pixels": 72,
+    "final_relabeling": "connected components of retained instance foreground"
+  },
+  "locked_parameters": true,
+  "change_policy": "External validation must first run this configuration unchanged. Any domain preprocessing is a separately named experiment and must not overwrite frozen-v2 results."
+}
+

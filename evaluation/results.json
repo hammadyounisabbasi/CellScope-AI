@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-10-05T17:12:55.652211+00:00",
+  "scope": "deterministic synthetic fixture; not a BBBC031 benchmark claim",
+  "microscopy": {
+    "samples": 1,
+    "true_count": 9,
+    "predicted_count": 9,
+    "count_mae": 0,
+    "dice": 1.0,
+    "iou": 1.0
+  },
+  "rag": {
+    "queries": 3,
+    "retrieval_recall_at_3": 1.0,
+    "citation_metadata_presence": 1.0,
+    "unsupported_answer_handling_tested": true
+  }
+}

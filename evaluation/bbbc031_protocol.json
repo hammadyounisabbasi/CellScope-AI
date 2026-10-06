@@ -1,0 +1,68 @@
+{
+  "protocol_version": "1.0.1",
+  "declared_on": "2026-10-04",
+  "amendment": "Before a valid baseline was produced, v1.0.0 was corrected after archive inspection showed a 4x6 well layout (A01-D06), not A01-A24, and one-based annotation coordinates. No algorithm metric informed this correction.",
+  "dataset": {
+    "name": "BBBC031",
+    "version": "1",
+    "source": "https://bbbc.broadinstitute.org/BBBC031",
+    "archive_url": "https://data.broadinstitute.org/bbbc/BBBC031/BBBC031_v1_dataset.zip",
+    "archive_sha256": "47997aef4d69b4ccf563d1a4b5b2087b8f81ef920c7f6a8696af34804c410414",
+    "annotation_url": "https://data.broadinstitute.org/bbbc/BBBC031/BBBC031_v1_DatasetGroundTruth.csv",
+    "annotation_sha256": "4888b29a1a0a2053f3dfcaaf49b8def07c4788242248a41cc0e5bb173dbab341",
+    "license": "Creative Commons Attribution 3.0 Unported"
+  },
+  "population": {
+    "images": 216,
+    "wells": 24,
+    "sites_per_well": 9,
+    "annotated_cells_per_image": 40,
+    "excluded_samples": [],
+    "exclusion_policy": "Exclude only missing, unreadable, dimension-mismatched, or annotation-missing samples; record every exclusion as a failure."
+  },
+  "split": {
+    "unit": "well",
+    "method": "Fixed-seed random selection without site-level leakage",
+    "random_seed": 31031,
+    "development_wells": ["B01", "B04", "C01", "C06", "D01", "D04"],
+    "development_images": 54,
+    "held_out_test_wells": ["A01", "A02", "A03", "A04", "A05", "A06", "B02", "B03", "B05", "B06", "C02", "C03", "C04", "C05", "D02", "D03", "D05", "D06"],
+    "held_out_test_images": 162,
+    "test_access_policy": "The baseline may be measured on test. Improved-pipeline parameters are selected only from development results, then the fixed improved configuration is evaluated once on test."
+  },
+  "ground_truth": {
+    "semantic_target": "Pixelwise union of the binary CELLMASK and NUCLMASK TIFF files",
+    "semantic_rationale": "The source image contains colored cell body and blue nucleus. CELLMASK and NUCLMASK are disjoint components, so their union represents visible whole-cell foreground.",
+    "count_target": "Number of annotation CSV rows for ImageName; 40 for every supplied image",
+    "detection_points": "LocationX is image column and LocationY is image row; both are one-based and are converted to zero-based array indices by subtracting one",
+    "instance_limitation": "Cell masks are binary semantic masks, not instance IDs. Object matching therefore uses annotated center points and does not claim instance-mask IoU."
+  },
+  "baseline": {
+    "implementation": "backend.app.vision.analyzer._segment",
+    "configuration": {
+      "signal": "skimage.color.rgb2gray followed by intensity rescaling",
+      "threshold": "global Otsu",
+      "minimum_object_size": "max(8, image_pixels * 0.00004), equal to 36 pixels at 950x950",
+      "hole_area_threshold": 36,
+      "binary_opening_disk_radius": 1,
+      "distance_smoothing_sigma": 1.0,
+      "markers": "all regional maxima",
+      "watershed": "negative Euclidean distance within binary foreground"
+    }
+  },
+  "development_only_search": {
+    "signal": ["max_rgb"],
+    "gaussian_sigma": [0.0, 1.0],
+    "minimum_object_size": [36, 72],
+    "peak_min_distance": [8, 12, 16],
+    "selection_metric": "mean semantic Dice + 0.25 * (1 - clipped mean absolute percentage count error)",
+    "tie_breakers": ["lower count MAE", "lower runtime", "lexical configuration order"]
+  },
+  "metrics": {
+    "semantic": ["Dice", "IoU", "foreground precision", "foreground recall"],
+    "count": ["MAE", "RMSE", "MAPE"],
+    "point_detection": ["annotated-center recall", "predicted-object precision", "F1"],
+    "error_indicators": ["merged-object rate", "count over-segmentation rate", "count under-segmentation rate"],
+    "aggregation": "Macro mean across images; count RMSE is computed across per-image count errors."
+  }
+}
